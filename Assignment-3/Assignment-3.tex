@@ -122,7 +122,7 @@ columns=fullflexible
      \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
      \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
 \vspace{3cm}
-\title{ASSIGNMENT 2}
+\title{ASSIGNMENT 3}
 \author{Amulya Tallamraju \\ AI20BTECH11003}
 \maketitle
 \newpage
@@ -143,22 +143,24 @@ https://github.com/AmulyaTallamraju/EE3900/blob/main/Assignment-3/Assignment-3.t
 Construct a quadrilateral MORE where $MO = 6, OR = 4.5, \angle M = 60 \degree, \angle O = 105 \degree$ and $\angle R = 105 \degree$.
 %
 \section{SOLUTION}
-Given
-    \begin{align}
-    &\angle M= 60\degree=\theta \label{eq1}
-    \\
-    &\angle O= 105\degree=\alpha
-    \\
-    &\angle R= 105\degree=\delta \label{eq2}
-    \\
-    &\norm{\vec{O}-\vec{M}} =6=a, \label{eq3}
-    \\
-    &\norm{\vec{R}-\vec{O}} =4.5=b,\label{eq4}
-    \\
-    &\vec{M}=\myvec{0\\0}, \vec{O}=\myvec{6\\0}
-    \end{align}
-      Let
+\begin{lemma}
+If three angles and two sides of a quadrilateral are known, then the coordinates of the vertices can be expressed as
 \begin{align}
+    \vec{R}=\vec{O}+b\times \myvec{\cos {(180\degree-\alpha)} \\ \sin{(180\degree - \alpha)}}\\
+    \vec{E}=d \myvec{\cos \theta \\ \sin \theta}
+\end{align}
+Where
+    \begin{align}
+    &\angle M=\theta \label{eq1}
+    \\
+    &\angle O=\alpha
+    \\
+    &\angle R=\delta \label{eq2}
+    \\
+    &\norm{\vec{O}-\vec{M}} =a, \label{eq3}
+    \\
+    &\norm{\vec{R}-\vec{O}} =b,\label{eq4}
+    \\
  &\norm{\vec{R}-\vec{E}}=c
  \\
   &\norm{\vec{M}-\vec{E}} =d 
@@ -169,25 +171,13 @@ Given
   \\
   & \delta_1=\angle ERM \\
   & \delta_2= \angle ORM\\
-  & \gamma= \angle E
-\end{align}
-\begin{lemma}
-If three angles and two sides of a quadrilateral are known, then the coordinates of the vertices can be expressed as
-\begin{align}
-    \vec{R}=\vec{O}+b\times \myvec{\cos \alpha \\ \sin \alpha}\\
-    \vec{E}=d \myvec{\cos \theta \\ \sin \theta}
-\end{align}
-where 
-\begin{align}
-    d=e \times \brak{\frac{\sin\brak{{\delta-\sin^{-1}\sbrak{\sin{\alpha}\times \brak{\frac{b}{e}}}}}}{\sin\brak{{360\degree-(\alpha+\theta+\delta)}}}}
-\times
-\end{align}
-and
-\begin{align}
-    e=\sqrt{a^2+b^2-2\times a \times b\cos{\alpha}}
+  & \gamma= \angle E\\
+    &d=e \times \brak{\frac{\sin\brak{{\delta-\sin^{-1}\sbrak{\sin{\alpha}\times \brak{\frac{b}{e}}}}}}{\sin\brak{{360\degree-(\alpha+\theta+\delta)}}}}\\
+   & e=\sqrt{a^2+b^2-2\times a \times b\cos{\alpha}}
 \end{align}
 \end{lemma}
 \begin{proof}
+Using angle sum rule of quadrilaterals
 \begin{align}
 \gamma=360\degree-(\alpha+\theta+\delta)
 \end{align}
@@ -213,7 +203,6 @@ Using sine law of triangle,
 From the above equations, we get
 \begin{align}
 d=e \times \brak{\frac{\sin\brak{{\delta-\sin^{-1}\sbrak{\sin{\alpha}\times \brak{\frac{b}{e}}}}}}{\sin\brak{{360\degree-(\alpha+\theta+\delta)}}}}
-\times 
 \end{align}
 where
 \begin{align}
@@ -223,7 +212,7 @@ where
   Calculating the co-ordinates of $\vec{R}$:\\
  Putting the values in the above equation we get,
  \begin{align}
-     \implies \vec{R}= \myvec{6\\0}+4.5 \myvec{\cos 105\degree\\ \sin 105\degree}
+     \implies \vec{R}= \myvec{6\\0}+4.5 \myvec{-\cos 105\degree\\ \sin 105\degree}
  \end{align}
  \begin{align}
      \implies \vec{R}= \myvec{6\\0}+\myvec{1.16\\4.35}
