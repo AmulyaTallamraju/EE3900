@@ -144,14 +144,17 @@ Construct a quadrilateral MORE where $MO = 6, OR = 4.5, \angle M = 60 \degree, \
 %
 \section{SOLUTION}
 \begin{lemma}
-If three angles and two sides of a quadrilateral are known, then the coordinates of the vertices can be expressed as
+Given 
 \begin{align}
-    \vec{R}=\vec{O}+b\times \myvec{\cos {(180\degree-\alpha)} \\ \sin{(180\degree - \alpha)}}\\
-    \vec{E}=d \myvec{\cos \theta \\ \sin \theta}
+    &MO = 6\\
+    &OR = 4.5\\
+    &\angle M = 60 \degree\\
+    &\angle O = 105 \degree\\
+    &\angle R = 105 \degree
 \end{align}
-Where
-    \begin{align}
-    &\angle M=\theta \label{eq1}
+Let
+\begin{align}
+        &\angle M=\theta \label{eq1}
     \\
     &\angle O=\alpha
     \\
@@ -171,7 +174,15 @@ Where
   \\
   & \delta_1=\angle ERM \\
   & \delta_2= \angle ORM\\
-  & \gamma= \angle E\\
+  & \gamma= \angle E
+\end{align}
+If three angles and two sides of a quadrilateral are known, then the coordinates of the vertices can be expressed as
+\begin{align}
+    \vec{R}=\vec{O}+b\times \myvec{\cos {(180\degree-\alpha)} \\ \sin{(180\degree - \alpha)}}\\
+    \vec{E}=d \myvec{\cos \theta \\ \sin \theta}
+\end{align}
+Where
+    \begin{align}
     &d=e \times \brak{\frac{\sin\brak{{\delta-\sin^{-1}\sbrak{\sin{\alpha}\times \brak{\frac{b}{e}}}}}}{\sin\brak{{360\degree-(\alpha+\theta+\delta)}}}}\\
    & e=\sqrt{a^2+b^2-2\times a \times b\cos{\alpha}}
 \end{align}
