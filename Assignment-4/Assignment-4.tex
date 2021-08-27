@@ -154,14 +154,31 @@ The equation of the line is
 &= \myvec{5\\1\\6} + \lambda \myvec{2\\-3\\5}
 \end{align}
 %
-The line  crosses the YZ plane for $x_1= 0 \implies \lambda = -\frac{5}{2}$. Thus, the desired point is
-%
+The equation of the YZ plane can be represented as 
 \begin{align}
- \myvec{5\\1\\6} -\frac{5}{2}\myvec{2\\-3\\5} = \frac{1}{2}\myvec{0\\17\\-13}
+    \vec{n}^T\vec{x}=c
+\end{align}
+Where
+\begin{align}
+    \vec{n}&=\myvec{1\\0\\0}\\
+    c&=0
+\end{align}
+As the point satisfies the plane equation
+\begin{align}
+    (1 && 0 && 0)\brak{ \myvec{5\\1\\6} + \lambda \myvec{2\\-3\\5} }=0
+\end{align}
+Solving the above we get
+\begin{align}
+    \lambda=\frac{-5}{2}
+\end{align}
+Substituting the value of $\lambda$ we have the point of contact as
+\begin{align}
+ \vec{x}=\myvec{5\\1\\6} -\frac{5}{2}\myvec{2\\-3\\5} = \frac{1}{2}\myvec{0\\17\\-13}
 \end{align}
 \begin{figure}[!ht]
 \includegraphics[ width=\columnwidth]{plot.png}
 \caption{Line and point of intersection}
 \label{fig:Line }	
 \end{figure}
+
 \end{document}
