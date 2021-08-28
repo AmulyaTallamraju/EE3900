@@ -173,38 +173,45 @@ By applying IDTFT, we can write:
 \begin{align}
 z[n]=\frac{1}{2\pi} \int_{0}^{2\pi} X(e^{j\omega}) Y(e^{-j\omega}) e^{j\omega n}\, d\omega  
 \end{align}
-Putting $n=0$, we get
+Putting $n=0$, we get the required value which is
 \begin{align}
 z[0]=\frac{1}{2\pi} \int_{0}^{2\pi} X(e^{j\omega}) Y(e^{-j\omega})\, d\omega 
 \end{align}
-which is the required value. From \eqref{convolu} we have
+The DTFT of $x[n]$ is
 \begin{align}
-    z[n]&=x[n]*y[-n]\\
-    &=\sum_{k=-\infty}^{\infty} x[k] y[-n+k]\\
-    &=\sum_{k=-\infty}^{\infty}  2^{k-1} u[-k+2] 2^{n-k+2} u[-n+k+1]\\
-    &=\sum_{k=-\infty}^{\infty}  2^{n+1} u[-k+2] u[-n+k+1] \label{fin}
+    X(z=e^{j\omega})&={\mathcal {Z}}\{x[n]\}=\sum _{n=-\infty }^{\infty }x[n]z^{-n}\\
+    &=\sum _{n=-\infty }^{2 }(2)^{n-1}z^{-n}\\
+    &=\frac{1}{2}\sum _{n=-2 }^{\infty }(2)^{-n}z^{n}\\
+    &=\frac{1}{2}\sum _{n=-2 }^{\infty }\brak{\frac{z}{2}}^n\\
+    &=\frac{1}{2}\brak{\frac{\brak{\frac{2}{z}}^2}{1-\frac{z}{2}}}
 \end{align}
-The unit step function is defined as
+The DTFT of $y[n]$ is
 \begin{align}
-u[n] =
-\left\{
-	\begin{array}{ll}
-		1  & \mbox{if } n \geq 0 \\
-		0 & \mbox{if } n< 0
-	\end{array}
-\right.
+    Y(z=e^{j\omega})&={\mathcal {Z}}\{y[n]\}=\sum _{n=-\infty }^{\infty }y[n]z^{-n}\\
+    &=\sum _{n=-1  }^{\infty}(2)^{-n+2}z^{-n}\\
+    &=4\sum _{n=-1 }^{\infty }(2)^{-n}z^{-n}\\
+    &=4\sum _{n=-1 }^{\infty }\brak{\frac{1}{2z}}^n\\
+    &=4\brak{\frac{2z}{1-\frac{1}{2z}}}
 \end{align}
-From \eqref{fin}, putting $n=0$, we get
 \begin{align}
-    z[0]=&=\sum_{k=-\infty}^{\infty}  2^1 u[-k+2] u[k+1]\\
-    &=\sum_{k=-1}^{2}2\\
-    &=8
+  Z(z=e^{j\omega})&= X(z) Y\brak{\frac{1}{z}} \\
+  &=2\brak{\frac {\brak{\frac{2}{z}}^3} {\brak{1-\frac{z}{2}}^2}}
 \end{align}
-Therefore, the value of the integral
+Since, $\abs{z}\leq 1$, using the binomial expansion
 \begin{align}
-    \frac{1}{2\pi} \int_{0}^{2\pi} X(e^{j\omega}) Y(e^{-j\omega}) \, d\omega=8
+  Z(z=e^{j\omega})&=2 \brak{\frac{2}{z}}^3\brak{1+2\brak{\frac{z}{2}}+3\brak{\frac{z}{2}}^2+4\brak{\frac{z}{2}}^3 \ldots}\label{1}
 \end{align}
-
+From the definition of Z transform we have
+\begin{align}
+ Z(z=e^{j\omega})&=  \sum _{n=-\infty }^{\infty }z[n]z^{-n}\label{2}
+\end{align}
+Comparing \eqref{1} and \eqref{2} we get
+\begin{align}
+    z[0]=8
+\end{align}
+\begin{align}
+    \therefore \frac{1}{2\pi} \int_{0}^{2\pi} X(e^{j\omega}) Y(e^{-j\omega}) \, d\omega =8
+\end{align}
 \begin{figure}[!h]
          \centering
          \includegraphics[width=\columnwidth]{z[n].png}
