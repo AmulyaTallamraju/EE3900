@@ -150,22 +150,37 @@ The equation of the line is
 %
 \begin{align}
 \vec{x} &= \vec{A}+\lambda\brak{\vec{B}-\vec{A}}
-\\
-&= \myvec{5\\1\\6} + \lambda \myvec{2\\-3\\5}
 \end{align}
-%
-The equation of the YZ plane can be represented as 
+where
+\begin{align}
+    \vec{A}&=\myvec{a_1\\a_2\\a_3}\\
+    \vec{B}&=\myvec{b_1\\b_2\\b_3}
+\end{align}
+The equation of the plane can be represented as 
 \begin{align}
     \vec{n}^T\vec{x}=c
 \end{align}
 Where
 \begin{align}
-    \vec{n}&=\myvec{1\\0\\0}\\
-    c&=0
+    \vec{n}&=\myvec{n_1\\n_2\\n_3}\\
 \end{align}
-As the point satisfies the plane equation
+The point of intersection of the line and the plane satisfies the plane equation and is given by
+\begin{multline}
+    c=n_1(a_1+\lambda(b_1-a_1))\\+n_2(a_2+\lambda(b_2-a_2))\\+n_3(a_3+\lambda(b_3-a_3))\\
+\end{multline}   
+\begin{align}   
+    \implies \lambda=\frac{c-n_1a_1-n_2a_2-n_3a_3}{n_1(b_1-a_1)+n_2(b_2-a_2)+n_3(b_3-a_3)}
+\end{align}
+The point of intersection is then given by
 \begin{align}
-    (1 && 0 && 0)\brak{ \myvec{5\\1\\6} + \lambda \myvec{2\\-3\\5} }=0
+    \vec{x}=\myvec{a_1+\lambda b_1\\a_2+\lambda b_2\\a_3+\lambda b_3}
+\end{align}
+For the given problem,
+\begin{align}
+\myvec{a_1\\a_2\\a_3}= \myvec{5\\1\\6} \\
+\myvec{b_1\\b_2\\b_3}= \myvec{2\\-3\\5}\\
+\myvec{n_1\\n_2\\n_3}=\myvec{1\\0\\0}\\
+    c=0
 \end{align}
 Solving the above we get
 \begin{align}
