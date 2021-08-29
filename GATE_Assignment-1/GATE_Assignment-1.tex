@@ -177,22 +177,41 @@ Putting $n=0$, we get the required value which is
 \begin{align}
 z[0]=\frac{1}{2\pi} \int_{0}^{2\pi} X(e^{j\omega}) Y(e^{-j\omega})\, d\omega 
 \end{align}
-The DTFT of $x[n]$ is
-\begin{align}
-    X(z=e^{j\omega})&={\mathcal {Z}}\{x[n]\}=\sum _{n=-\infty }^{\infty }x[n]z^{-n}\\
-    &=\sum _{n=-\infty }^{2 }(2)^{n-1}z^{-n}\\
-    &=\frac{1}{2}\sum _{n=-2 }^{\infty }(2)^{-n}z^{n}\\
-    &=\frac{1}{2}\sum _{n=-2 }^{\infty }\brak{\frac{z}{2}}^n\\
-    &=\frac{1}{2}\brak{\frac{\brak{\frac{2}{z}}^2}{1-\frac{z}{2}}}
+The $\mathcal{Z}$ transform for a sequence of the form $a^{(n+b)}u[d+f]$ when $d=n$ is given by
+\begin{align}\label{Z1}
+a^b\sum _{n=-f }^{\infty }\brak{\frac{a}{z}}^n  
+=a^b\brak{\frac{\brak{\frac{z}{a}}^f}{1-\frac{a}{z}}}
 \end{align}
-The DTFT of $y[n]$ is
-\begin{align}
-    Y(z=e^{j\omega})&={\mathcal {Z}}\{y[n]\}=\sum _{n=-\infty }^{\infty }y[n]z^{-n}\\
-    &=\sum _{n=-1  }^{\infty}(2)^{-n+2}z^{-n}\\
-    &=4\sum _{n=-1 }^{\infty }(2)^{-n}z^{-n}\\
-    &=4\sum _{n=-1 }^{\infty }\brak{\frac{1}{2z}}^n\\
-    &=4\brak{\frac{2z}{1-\frac{1}{2z}}}
+provided, $\abs{a}<\abs{z}$, which is the region of convergence.When $d=-n$ is given by
+\begin{align}\label{Z2}
+a^b\sum _{n=-\infty }^{f }\brak{\frac{a}{z}}^n 
+&=a^b\sum _{n=-f }^{\infty }\brak{\frac{a}{z}}^{-n}\\
+&=a^b\sum _{n=-f }^{\infty }\brak{\frac{z}{a}}^n\\
+&=a^b\brak{\frac{\brak{\frac{a}{z}}^f}{1-\frac{z}{a}}}
 \end{align}
+provided, $\abs{z}<\abs{a}$, which is the region of convergence.
+The DTFT of $x[n]$ converges for all values of $\omega$ since,
+\begin{align}
+    z=e^{j\omega}\\
+    a=2\\
+    \abs{\frac{z}{a}}=\frac{1}{2}
+\end{align}
+From \eqref {Z2}, DTFT of $x[n]$ is
+\begin{align}
+    X(z=e^{j\omega})&={\mathcal {Z}}\{x[n]\}
+    =\frac{1}{2}\brak{\frac{\brak{\frac{2}{z}}^2}{1-\frac{z}{2}}}
+\end{align}
+The DTFT of $y[n]$ also converges for all values of $\omega$ since 
+\begin{align}
+    z=e^{j\omega}\\
+    a=\frac{1}{2}\\
+    \abs{\frac{a}{z}}=\frac{1}{2}
+\end{align}
+From \eqref{Z1} we have
+\begin{align}
+    Y(z=e^{j\omega})&={\mathcal {Z}}\{y[n]\}=4\brak{\frac{2z}{1-\frac{1}{2z}}}
+\end{align}
+Now,
 \begin{align}
   Z(z=e^{j\omega})&= X(z) Y\brak{\frac{1}{z}} \\
   &=2\brak{\frac {\brak{\frac{2}{z}}^3} {\brak{1-\frac{z}{2}}^2}}
