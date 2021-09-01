@@ -177,29 +177,31 @@ Putting $n=0$, we get the required value which is
 \begin{align}
 z[0]=\frac{1}{2\pi} \int_{0}^{2\pi} X(e^{j\omega}) Y(e^{-j\omega})\, d\omega 
 \end{align}
-The $\mathcal{Z}$ transform for a sequence of the form $a^{(n+b)}u[d+f]$ when $d=n$ is given by
+The $\mathcal{Z}$ transform for a sequence of the form $a^{(n)}u[n]$ when $d=n$ is given by
 \begin{align}\label{Z1}
-a^b\sum _{n=-f }^{\infty }\brak{{az^{-1}}}^n  
-=a^b\brak{{\brak{\frac{z}{a}}^f}({1-az^{-1}})^{-1}}
+\sum _{n=-\infty }^{\infty }\brak{{az^{-1}}}^n u[n]
+=\brak{({1-az^{-1}})^{-1}}
 \end{align}
-provided, $\abs{a}<\abs{z}$, which is the region of convergence.When $d=-n$ is given by
-\begin{align}\label{Z2}
-a^b\sum _{n=-\infty }^{f }\brak{az^{-1}}^n 
-&=a^b\sum _{n=-f }^{\infty }\brak{az^{-1}}^{-n}\\
-&=a^b\sum _{n=-f }^{\infty }\brak{\frac{z}{a}}^n\\
-&=a^b\brak{{\brak{az^{-1}}^f}\brak{1-\frac{z}{a}}^{-1}}
+provided, $\abs{z}<\abs{a}$, when $n<0$ or  $\abs{a}<\abs{z}$, when $n>0$ which is the region of convergence.
+From \eqref{Z1}, $\mathcal{Z} $ transform of $x[n]$ in the Region of Convergence is
+\begin{align}
+    X(z)&={\mathcal {Z}}\{x[n]\}
+    =\frac{1}{2}\brak{{\brak{2z^{-1}}^2}\brak{1-\frac{z}{2}}^{-1}}
 \end{align}
-provided, $\abs{z}<\abs{a}$, which is the region of convergence.
+From \eqref{Z1} $\mathcal{Z} $ transform of $y[n]$ in the Region of Convergence is
+\begin{align}
+    Y(z)&={\mathcal {Z}}\{y[n]\}=4\brak{{2z}\brak{1-\frac{z^{-1}}{2}}^{-1}}
+\end{align}
+Now,
+\begin{align}\label{aa}
+  Z(z)&= X(z) Y\brak{\frac{1}{z}} \\
+  &=2\brak{ {\brak{2z^{-1}}^3} {\brak{1-\frac{z}{2}}^{-2}}}
+\end{align}
 The DTFT of $x[n]$ converges for all values of $\omega$ since,
 \begin{align}
     z=e^{j\omega}\\
     a=2\\
     \abs{{z}{a}}=\frac{1}{2}
-\end{align}
-From \eqref {Z2}, DTFT of $x[n]$ is
-\begin{align}
-    X(z=e^{j\omega})&={\mathcal {Z}}\{x[n]\}
-    =\frac{1}{2}\brak{{\brak{2z^{-1}}^2}\brak{1-\frac{z}{2}}^{-1}}
 \end{align}
 The DTFT of $y[n]$ also converges for all values of $\omega$ since 
 \begin{align}
@@ -207,29 +209,34 @@ The DTFT of $y[n]$ also converges for all values of $\omega$ since
     a=\frac{1}{2}\\
     \abs{az^{-1}}=\frac{1}{2}
 \end{align}
-From \eqref{Z1} we have
 \begin{align}
-    Y(z=e^{j\omega})&={\mathcal {Z}}\{y[n]\}=4\brak{{2z}\brak{1-\frac{z^{-1}}{2}}^{-1}}
+\sum _{n=-\infty }^{\infty}\brak{az^{-1}}^nu[-n]
+&=\sum _{n=-\infty }^{\infty }\brak{az^{-1}}^{-n}u[n]\\
+&=\sum _{n=0 }^{\infty }\brak{\frac{z}{a}}^n\\
+&=\brak{\brak{1-\frac{z}{a}}^{-1}}
 \end{align}
-Now,
+Differentiating the above expression 
 \begin{align}
-  Z(z=e^{j\omega})&= X(z) Y\brak{\frac{1}{z}} \\
-  &=2\brak{ {\brak{2z^{-1}}^3} {\brak{1-\frac{z}{2}}^{-2}}}
+&\sum _{n=-\infty }^{\infty }na^{-n}z^{n-1}u[n]
+=\frac{1}{a}\brak{\brak{1-\frac{z}{a}}^{-2}}\\
+\implies & \sum _{n=-\infty }^{\infty }na^{-n}z^{n-4}u[n]
+=\frac{1}{a}\brak{z^{-3}\brak{1-\frac{z}{a}}^{-2}}\\
+\implies & \sum _{n=-\infty }^{\infty }na^{-n+5}z^{n-4}u[n]
+=a^4\brak{z^{-3}\brak{1-\frac{z}{a}}^{-2}}\\
+\implies & \sum _{n=-\infty }^{\infty }(4-n)a^{n+1}z^{-n}u[4-n]=a^4\brak{z^{-3}\brak{1-\frac{z}{a}}^{-2}}
 \end{align}
-Since, $\abs{z}\leq 1$, using the binomial expansion
-\begin{multline}
-  Z(z=e^{j\omega})=\\2 \brak{2z^{-1}}^3\brak{1+2\brak{\frac{z}{2}}+3\brak{\frac{z}{2}}^2+4\brak{\frac{z}{2}}^3 \ldots}\label{1}
-\end{multline}
-From the definition of Z transform we have
+Comparing the above equation with \eqref{aa} we get
+$a=2$.
+From the definition of DTFT we have
 \begin{align}
  Z(z=e^{j\omega})&=  \sum _{n=-\infty }^{\infty }z[n]z^{-n}\label{2}
 \end{align}
-Comparing \eqref{1} and \eqref{2} we get
+Thus
 \begin{align}
-    z[0]=8
+ z[n]=(4-n)2^{n+1}u[4-n]
 \end{align}
 \begin{align}
-    \therefore \frac{1}{2\pi} \int_{0}^{2\pi} X(e^{j\omega}) Y(e^{-j\omega}) \, d\omega =8
+    \therefore \frac{1}{2\pi} \int_{0}^{2\pi} X(e^{j\omega}) Y(e^{-j\omega}) \, d\omega =z[0]=8
 \end{align}
 \begin{figure}[!h]
          \centering
