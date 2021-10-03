@@ -184,4 +184,19 @@ Thus the even and odd parts of the unit step signal are
 \begin{align}
    \frac{1}{2} , \frac{x(t)}{2}
 \end{align}
+The fourier transform of $x(t)$ is given by
+\begin{align}
+    X\brak{\omega} = \int_{ - \infty }^{ + \infty } x(t){e^{ - j\omega t}}dt
+\end{align}
+This signal is not absolutely integrable so we calculate Fourier Transform of $x(t)$ as a limiting case of the sum of exponential $e^{-at}u(t) - e^{at}u(t)$ as $a \to 0.$
+\begin{align}
+    X\brak{\omega} &=\lim_{a \to 0} \int_{ - \infty }^{ + \infty } \brak{e^{-at}u(t) - e^{at}u(t)}{e^{ - j\omega t}}dt\\
+    &=\lim_{a \to 0}\sbrak{\frac{1}{a  +  j\omega}  -  \frac{1}{a  -  j\omega}}\\
+    &=\frac{2}{j\omega}
+\end{align}
+Laplace transform of $x(t)$
+\begin{align}
+    \mathcal{L}\{x\}(s) &= \int_{0}^{\infty} x(t)e^{-st} \, dt.\\
+    &=\frac{1}{s}
+\end{align}
 \end{document}
