@@ -13,32 +13,31 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-n=np.linspace(-8, 8, num=17)
-h2_n=np.eye(1,17,10)
-h1_n=np.eye(1,17,9)
-h_n=np.eye(1,17,11)
+h1_n=[0,1,0,0]
+h2_n=[0,0,1,0]
+h_n=[0,0,0,1]
 #plot
 print(h1_n)
-
-plt.stem(n,h1_n[0],use_line_collection=True)
+n=[0,1,2,3]
+plt.stem(n,h1_n,use_line_collection=True)
 plt.title('h_1[n]')
 plt.xlabel('$n$')
 plt.ylabel('$h_1(n)$')
 plt.grid()# minor
 
-plt.stem(n,h2_n[0],use_line_collection=True)
+plt.stem(n,h2_n,use_line_collection=True)
 plt.title('h_2[n]')
 plt.xlabel('$n$')
 plt.ylabel('$h_2(n)$')
 plt.grid()
 
-plt.stem(n,h_n[0],use_line_collection=True)
+plt.stem(n,h_n,use_line_collection=True)
 plt.title('h[n]')
 plt.xlabel('$n$')
 plt.ylabel('$h(n)$')
 plt.grid()
 
-cascade = np.convolve(h1_n[0],h2_n[0])
+cascade = np.convolve(h1_n,h2_n)
 #Plotting step response
 
 print(cascade)
