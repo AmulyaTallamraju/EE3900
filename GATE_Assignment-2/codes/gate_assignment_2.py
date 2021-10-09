@@ -13,12 +13,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-h1_n=[0,1,0,0]
-h2_n=[0,0,1,0]
-h_n=[0,0,0,1]
+h1_n=[0,1,0]
+h2_n=[0,0,1]
 #plot
 print(h1_n)
-n=[0,1,2,3]
+n=[0,1,2]
 plt.stem(n,h1_n,use_line_collection=True)
 plt.title('h_1[n]')
 plt.xlabel('$n$')
@@ -31,13 +30,14 @@ plt.xlabel('$n$')
 plt.ylabel('$h_2(n)$')
 plt.grid()
 
-plt.stem(n,h_n,use_line_collection=True)
-plt.title('h[n]')
-plt.xlabel('$n$')
-plt.ylabel('$h(n)$')
-plt.grid()
-
 cascade = np.convolve(h1_n,h2_n)
 #Plotting step response
 
 print(cascade)
+## the lower limits change to N1+M1 while upper limits change to N2+M2
+ran=list(range(2*n[-1]+1))
+plt.stem(ran,cascade,use_line_collection=True)
+plt.title('h[n]')
+plt.xlabel('$n$')
+plt.ylabel('$h(n)$')
+plt.grid()
