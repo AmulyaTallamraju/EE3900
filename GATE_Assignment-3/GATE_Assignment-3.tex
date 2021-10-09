@@ -201,9 +201,16 @@ This signal is not absolutely integrable so we calculate Fourier Transform of $x
     &=\lim_{a \to 0}\sbrak{\frac{1}{a  +  j\omega}  -  \frac{1}{a  -  j\omega}}\\
     &=\frac{2}{j\omega}
 \end{align}
-Laplace transform of $x(t)$
+The fourier transform of the unit step function can be found by realising that
 \begin{align}
-    \mathcal{L}\{x\}(s) &= \int_{0}^{\infty} x(t)e^{-st} \, dt.\\
-    &=\frac{1}{s}
+u(t)=\frac12(1+\sgn(t))    
+\end{align}
+\begin{align}
+ \implies   \mathcal{F}\{u(t)\}=\frac12\left(\mathcal{F}\{1\}+\mathcal{F}\{\text{sgn}(t)\}\right)=\pi\delta(\omega)+\frac{1}{j\omega}
+\end{align}
+The Double-sided Laplace transform of $x(t)$
+\begin{align}
+    \mathcal{L}\{x\}(s) &= \int_{-\infty}^{\infty} x(t)e^{-st} \, dt.\\
+    &=\frac{2}{s}
 \end{align}
 \end{document}
